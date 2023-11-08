@@ -16,6 +16,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/', function () {
+    return 'OK';
+});
+
 Route::prefix('auth')->group(function () {
     Route::get('/check-token', [UserController::class, 'checkToken']);
     Route::post('/login', [UserController::class, 'login']);
