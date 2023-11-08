@@ -15,7 +15,9 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')->hourly();
+        $schedule->command('collect:push_job')->name('collect-push-job')->dailyAt('6:00');
+        $schedule->command('run:push_job')->name('run-push-job')->dailyAt('9:00');
+        $schedule->command('delete:push_job')->name('delete-push-job')->dailyAt('12:00');
     }
 
     /**
